@@ -1,0 +1,4 @@
+conda env create -f cvcourse_wrong.yml
+conda env create -f cvcourse_windows.yml
+conda activate python-cvcourse
+jupyter-lab

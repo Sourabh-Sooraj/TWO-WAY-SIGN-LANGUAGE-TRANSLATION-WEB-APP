@@ -1,0 +1,5 @@
+/07-Capstone-Project
+/DATA
+/Lecture*
+/Project
+/static/Video_recs

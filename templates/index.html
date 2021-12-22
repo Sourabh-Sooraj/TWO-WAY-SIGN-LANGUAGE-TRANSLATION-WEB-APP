@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>My Flask Application</title>
+    </head>
+    <body>
+        <h1>Sign Language Translator</h1>
+            <h3>Text to Video:</h3>
+            <input id='sent' type='text'/>
+            <button id='txttovid'>Start</button>
+            <video width="500" height="350"  id="myVideo" controls autoplay>
+                <source src="" id="mp4Source" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        <h3>Video to Text:</h3>
+        <p align="center"><a href=signlang><button class=grey style="height:75px;width:150px">Start</button></a></p>
+        <script>
+            var count=1;
+            var a = document.getElementById('txttovid');
+            var player=document.getElementById('myVideo');
+            var mp4Vid = document.getElementById('mp4Source');
+            player.addEventListener('ended',myHandler,false);
+            var str="";
+
+            a.addEventListener('click', function(e){
+                str = document.getElementById('sent').value;
+                mp4Vid.src="https://signlangproj.s3.us-east-2.amazonaws.com/Video+recs/"+str.charAt(0)+".mp4";
+                player.load();
+                player.play();
+            });
+
+            function myHandler(e){
+                
+                if(!e){
+                    e=window.event;
+                }
+                /* if(count>=len(str)){
+                    player.pause();
+                } */
+                mp4Vid.src="https://signlangproj.s3.us-east-2.amazonaws.com/Video+recs/"+str.charAt(count)+".mp4";
+                player.load();
+                player.play();
+                count++;
+
+            }
+        </script>
+    </body>
+</html>
